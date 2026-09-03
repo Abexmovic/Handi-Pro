@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HandyPro - Local Service & Trade Directory</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="./style.css">                                              
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="./index.html" class="logo"><i class="fa-solid fa-screwdriver-wrench"></i> HandyPro</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#categories">Categories</a>
+                <a href="#providers">Featured Experts</a>
+                <a href="./register.html" class="btn btn-secondary">Register as a Pro</a>
+            </nav>
+            <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Find Trusted Experts for Any Household Job</h1>
+            <p>Connect Instantly With A Verified Artisans In Your Area.</p>
+            
+            <!-- Search & Filter Bar -->
+            <div class="search-box">
+                <div class="input-group">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="What service do you need? (e.g. Solar, Plumbing)">
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input type="text" id="locationInput" placeholder="Location or City">
+                </div>
+                <button class="btn btn-primary" onclick="filterServices()">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Categories -->
+    <section class="categories container" id="categories">
+        <h2>Popular Categories</h2>
+        <div class="category-grid">
+            <div class="category-card" onclick="filterByCategory('solar')">
+                <i class="fa-solid fa-solar-panel cat-icon"></i>
+                <h3>Solar Installation</h3>
+                <p>Inverters, panels & repairs</p>
+            </div>
+            <div class="category-card" onclick="filterByCategory('plumbing')">
+                <i class="fa-solid fa-faucet-drip cat-icon"></i>
+                <h3>Plumbing</h3>
+                <p>Pipes, leaks & installations</p>
+            </div>
+            <div class="category-card" onclick="filterByCategory('electrical')">
+                <i class="fa-solid fa-bolt cat-icon"></i>
+                <h3>Electrical</h3>
+                <p>Wiring, fixes & appliances</p>
+            </div>
+            <div class="category-card" onclick="filterByCategory('carpentry')">
+                <i class="fa-solid fa-hammer cat-icon"></i>
+                <h3>Carpentry</h3>
+                <p>Furniture, roofing & repairs</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Providers Directory -->
+    <section class="providers container" id="providers">
+        <h2>Verified Professionals</h2>
+        <div class="slider-wrapper">
+            <button class="slider-btn prev-btn" id="slidePrev" aria-label="Previous Slide">&#10094;</button>
+    
+            <div class="slider-container" id="sliderContainer">
+                <div class="slider-track" id="verifiedProvidersGrid">
+                    <!-- Dynamic provider cards load here -->
+                     <div class="provider-grid" id="providerGrid">
+            
+            <!-- Provider Card 1: Solar -->
+            <article class="provider-card" data-category="solar">
+                <div class="card-image">
+                    <!-- Placeholder image tag for profile image -->
+                    <img src="./Images/ChatGPT Image Aug 9, 2026, 08_42_31 AM.png" alt="Profile picture of Solar Technician" class="profile-img-placeholder">
+                    <span class="badge verified"><i class="fa-solid fa-circle-check"></i> Verified</span>
+                </div>
+                <div class="card-body">
+                    <span class="trade-tag">Solar Installation</span>
+                    <h3>David Tech Solutions</h3>
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> Lekki, Lagos</p>
+                    <p class="bio">Specialized in residential inverter setup, solar panel mounting, and battery maintenance.</p>
+                    
+                    <div class="portfolio-preview">
+                        <!-- Placeholder tags for work portfolio photos -->
+                        <img src="./Images/ChatGPT Image Aug 9, 2026, 08_42_31 AM.png" alt="Portfolio Work Sample 1" class="portfolio-img-placeholder">
+                        <img src="./Images/ChatGPT Image Aug 9, 2026, 08_42_31 AM.png" alt="Portfolio Work Sample 2" class="portfolio-img-placeholder">
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="tel:+2348000000000" class="btn btn-call"><i class="fa-solid fa-phone"></i> Call Now</a>
+                        <a href="https://wa.me/2348000000000" class="btn btn-whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Provider Card 2: Electrical -->
+            <article class="provider-card" data-category="electrical">
+                <div class="card-image">
+                    <img src="./Images/ChatGPT Image Aug 9, 2026, 08_42_31 AM.png" alt="Profile picture of Electrician" class="profile-img-placeholder">
+                    <span class="badge verified"><i class="fa-solid fa-circle-check"></i> Verified</span>
+                </div>
+                <div class="card-body">
+                    <span class="trade-tag">Electrical</span>
+                    <h3>Sam Electrical Services</h3>
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> Ikeja, Lagos</p>
+                    <p class="bio">Full house wiring, fault tracing, distribution board upgrades, and industrial maintenance.</p>
+
+                    <div class="portfolio-preview">
+                        <img src="./Images/ChatGPT Image Aug 9, 2026, 08_42_31 AM.png" alt="Portfolio Work Sample 1" class="portfolio-img-placeholder">
+                        <img src="./Images/ChatGPT Image Aug 9, 2026, 08_42_31 AM.png" alt="Portfolio Work Sample 2" class="portfolio-img-placeholder">
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="tel:+2348000000001" class="btn btn-call"><i class="fa-solid fa-phone"></i> Call Now</a>
+                        <a href="https://wa.me/2348000000001" class="btn btn-whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                    </div>
+                </div>
+            </article>
+
+            <section class="verified-section">
+                     <!-- Container where dynamically loaded cards will appear -->
+                <div id="verifiedProvidersGrid" class="providers-grid">
+                     <!-- Cards will be inserted here by JavaScript -->
+                </div>
+            </section>
+
+        </div>
+                </div>
+            </div>
+    
+            <button class="slider-btn next-btn" id="slideNext" aria-label="Next Slide">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 HandyPro Directory. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</body>
+</html>
+
+

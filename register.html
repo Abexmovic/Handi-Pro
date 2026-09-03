@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register as a Professional - HandyPro</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-screwdriver-wrench"></i> HandyPro</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html#categories">Categories</a>
+                <a href="index.html#providers">Featured Experts</a>
+                <a href="index.html" class="btn btn-secondary"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+            </nav>
+            <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Registration Hero Banner -->
+    <section class="reg-hero">
+        <div class="container text-center">
+            <h1>Join HandyPro as a Verified Service Provider</h1>
+            <p>Get listed in our directory and start receiving direct calls from customers in your local area.</p>
+        </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section class="reg-form-section container">
+        <div class="form-card">
+            <h2>Pro Registration Form</h2>
+            <p class="form-subtitle">Fill in your professional details below to submit your application for review.</p>
+
+            <form id="proRegisterForm" >
+                
+                <!-- Personal / Business Details -->
+                <div class="form-group-grid">
+                    <div class="form-field">
+                        <label for="fullName">Full Name or Business Name *</label>
+                        <input type="text" id="fullName" required placeholder="e.g. David Tech Solutions">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="category">Primary Service Category </label>
+                        <select id="category" required>
+                            <option value="">Select your category...</option>
+                            <option value="solar">Solar Installation & Inverters</option>
+                            <option value="plumbing">Plumbing & Pipe Repair</option>
+                            <option value="electrical">Electrical Wiring & Repairs</option>
+                            <option value="carpentry">Carpentry & Furniture</option>
+                            <option value="other">Other Repairs / Services</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Contact & Location Info -->
+                <div class="form-group-grid">
+                    <div class="form-field">
+                        <label for="phoneNumber">Phone Number (For direct calls) *</label>
+                        <input type="tel" id="phoneNumber" required placeholder="e.g. +234 800 000 0000">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="whatsappNumber">WhatsApp Number *</label>
+                        <input type="tel" id="whatsappNumber" required placeholder="e.g. +234 800 000 0000">
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="location">Operating Area / City *</label>
+                    <input type="text" id="location" required placeholder="e.g. Lekki, Lagos or Ikeja, Lagos">
+                </div>
+
+                <!-- Bio / Experience -->
+                <div class="form-field">
+                    <label for="bio">Short Description of Your Services *</label>
+                    <textarea id="bio" rows="4" required placeholder="Describe your experience, specialty services, and working hours..."></textarea>
+                </div>
+
+                <!-- Media Upload Placeholders -->
+                <div class="form-field">
+                    <label>Profile Picture (Upload Placeholder)</label>
+                    <input type="file" id="profileImage" accept="image/*" class="file-input">
+                    <small class="help-text">Recommended size: Square 500x500px</small>
+                </div>
+
+                <div class="form-field">
+                    <label>Portfolio Photos of Past Work (Upload Placeholders)</label>
+                    <input type="file" id="portfolioImages" accept="image/*" multiple class="file-input">
+                    <small class="help-text">You can select multiple photos of past projects</small>
+                </div>
+
+                <!-- ADD THE FILE INPUT HERE -->
+                <div class="form-group">
+                    <label for="profileImage">Profile Image</label>
+                    <input type="file" id="profileImage" accept="image/*">
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary btn-full"><i class="fa-solid fa-paper-plane"></i> Submit Application</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2026 HandyPro Directory. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</body>
+</html>
